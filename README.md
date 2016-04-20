@@ -1,9 +1,9 @@
-# This repo is to help people to get started with jasmine and the string kata as described below.
+## This repo is to help people to get started with jasmine and the string kata as described below.
 
-## A good practice is to try get as far as possible with the string kata in 15 mins, then start over. Use gulp to reset the kata and archive the work already done.
-## Use the 'gulp jasmine' to command to execute your jasmine tests.
+### A good practice is to try get as far as possible with the string kata in 15 mins, then start over. Use gulp to reset the kata and archive the work already done.
+### Use the 'gulp jasmine' to command to execute your jasmine tests.
 
-## String kata from: http://osherove.com/tdd-kata-1/
+### String kata from: http://osherove.com/tdd-kata-1/
 
 1. Create a simple String calculator with a method int Add(string numbers)
   1. The method can take 0, 1 or 2 numbers, and will return their sum (for an empty string it will return 0) for example “” or “1” or “1,2”

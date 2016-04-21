@@ -5,11 +5,6 @@ var gulp = require('gulp'),
 
 var dateTimeStamp = GetDateTimeStamp();
 
-gulp.task('jasmine', function() {
-    gulp.src('./spec/calculator-spec.js')
-        .pipe(jasmine())
-});
-
 gulp.task('archive-test', function () {
     return gulp.src(['./spec/calculator-spec.js'])
         .pipe(gulp.dest('./archive/' + dateTimeStamp + '/spec'));
@@ -35,9 +30,20 @@ gulp.task('refresh-implementation', function () {
         .pipe(gulp.dest('./'));
 });
 
-gulp.task('default', function (callback) {
+gulp.task('refresh', function (callback) {
     runSequence('archive-implementation', 'archive-test', 'clean', 'refresh-test', 'refresh-implementation', callback)
 });
+
+gulp.task('jasmine', function() {
+    gulp.src('./spec/calculator-spec.js')
+        .pipe(jasmine())
+});
+
+gulp.task('watch', function() {
+    gulp.watch(['./spec/calculator-spec.js', 'calculator.js'], ['jasmine']);
+});
+
+gulp.task('default', ['watch']);
 
 function GetDateTimeStamp() {
     var now = new Date();

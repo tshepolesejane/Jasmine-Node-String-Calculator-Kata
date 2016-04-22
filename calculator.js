@@ -11,12 +11,16 @@ function Sum(numbers) {
         return parseInt(numbers)
     }else {
         numbers = numbers.replace("\n", ',')
-        var numbersArray = numbers.split(',');
+        var stringNumbersArray = numbers.split(',');
 
-        for(i = 0; i < numbersArray.length; i++){
-            sum += parseInt(numbersArray[i]);
-        }
+        var intNumbersArray = stringNumbersArray.map(Number);
+
+        sum =intNumbersArray.reduce(getTotal)
         return sum;
     }
 
+}
+
+function getTotal(total, number) {
+    return total + number
 }

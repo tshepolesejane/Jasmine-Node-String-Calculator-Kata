@@ -14,5 +14,5 @@ describe("string calculator", function () {
     it("Should return a sum of numbers that are separated by a new line and commas", function () {
         expect(calculator.add("1\n2,3")).toBe(6)
     })
-    
+    it()
 });

@@ -1,18 +1,24 @@
-var calculator = require("../calculator");
-
-describe("string calculator", function () {
-    it("should return 0 if string is empty", function () {
-        var calculatorResult = calculator.add('');
-        expect(calculatorResult).toBe(0);
+var calculator = require('../calculator');
+describe("String calculator test", function () {
+    it("Should return zero when an empty string is passed", function () {
+        expect(calculator.add('')).toBe(0);
     });
-    it("Should return the entered number if String has one number",function () {
-        expect(calculator.add("1")).toBe(1)
-    })
-    it("Should return a sum of numbers that are separated by commas on input", function () {
-        expect(calculator.add("1,2,3")).toBe(6)
-    })
-    it("Should return a sum of numbers that are separated by a new line and commas", function () {
-        expect(calculator.add("1\n2,3")).toBe(6)
-    })
-    it()
+    it("Should return any single number passed in a string", function () {
+        expect(calculator.add('1')).toBe(1);
+    });
+    it("Should return sum of any comma delimited numbers in a string", function () {
+        expect(calculator.add('1,2')).toBe(3);
+    });
+    it("Should return sum of any comma and new line delimited numbers in a string", function () {
+        expect(calculator.add('1,2\n3')).toBe(6);
+    });
+    it("Should return sum of any custom delimited numbers in a string", function () {
+        expect(calculator.add('//;\n1,2\n3')).toBe(6);
+    });
+    it("Should return sum of any custom delimited numbers in a string", function () {
+        expect(calculator.add('//;\n1,2\n6')).toBe(9);
+    });
+    it("Should throw an exception on negative numbers", function () {
+        expect(function (){calculator.add('//;\n1,-2\n-6')}).toThrow(new Error('Negatives are not allowed: -2, -6'));
+    });
 });
